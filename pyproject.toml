@@ -1,0 +1,32 @@
+[project]
+name = "fireline"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+  "langgraph>=0.2",
+  "langgraph-checkpoint-sqlite",
+  "pydantic>=2",
+  "pydantic-settings",
+  "fastapi",
+  "uvicorn[standard]",
+  "httpx",
+  "mcp",
+  "chromadb",
+  "structlog",
+  "pyyaml",
+  "tenacity",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "pytest-asyncio", "ruff", "mypy"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
